@@ -4,8 +4,7 @@ ________________________________________________________________________________
 
 ## SlimContainer Constructor
 
-
-[SlimContainer] SlimContainer.new(**GuiObject** frame, [OPTIONAL] **ImageButton** buttonTemplate, [OPTIONAL] **INT** buttonAmount)
+[**SlimContainer**] SlimContainer.new(**GuiObject** frame, [OPTIONAL] **ImageButton** buttonTemplate, [OPTIONAL] **INT** buttonAmount)
 
 Creates a new SlimContainer using your own GUI and optional button templates
 ______________________________________________________________________________________________________________________
@@ -13,7 +12,7 @@ ________________________________________________________________________________
 ## SlimContainer Functions
 
 
-[Table] SlimContainer:GetButtons()
+[**Table**] SlimContainer:GetButtons()
 
 returns all the buttons within the GUI, but does not include the list/grid layout instance.
 ______________________________________________________________________________________________________________________
@@ -21,13 +20,13 @@ ________________________________________________________________________________
 ## SlimContainer Events
 
 
-[RBXScriptSignal] SlimContainer.MouseButton1Down(**INT** buttonId, **ImageButton** button)
+[**RBXScriptSignal**] SlimContainer.MouseButton1Down(**INT** buttonId, **ImageButton** button)
 
 Fires when a button is pressed within the SlimContainer, it will return the button pressed and its ID.
 
 -
 
-RBXScriptSignal] SlimContainer.MouseButton1Up(**INT** buttonId, **ImageButton** button)
+[**RBXScriptSignal**] SlimContainer.MouseButton1Up(**INT** buttonId, **ImageButton** button)
 
 Fires when a button is pressed within the SlimContainer, it will return the button hovered and its ID upon release.
 ______________________________________________________________________________________________________________________
