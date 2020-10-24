@@ -25,7 +25,7 @@ ________________________________________________________________________________
 
 Fires when a button is pressed within the SlimContainer, it will return the button pressed and its ID.
 
-----
+-
 
 RBXScriptSignal] SlimContainer.MouseButton1Up(**int** buttonId, **ImageButton** button)
 
@@ -40,11 +40,10 @@ ________________________________________________________________________________
 -
 -
 -
-
 ______________________________________________________________________________________________________________________
 
 #Shop Example
-
+___________________
 
 ##Local Script
 
