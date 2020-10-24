@@ -32,15 +32,6 @@ RBXScriptSignal] SlimContainer.MouseButton1Up(**int** buttonId, **ImageButton** 
 Fires when a button is pressed within the SlimContainer, it will return the button hovered and its ID up release.
 ______________________________________________________________________________________________________________________
 
--
--
--
--
--
--
--
--
-______________________________________________________________________________________________________________________
 
 #Shop Example
 ___________________
