@@ -74,7 +74,7 @@ local remoteEvent = game.ReplicatedStorage.RemoteEvent
 -- Setup some sort of data for your shop.
 local shopItems = {
    Slot1 = {Name = Sword, Price = 100},
-   Slot2 = {Name = Shield, Price = 200},
+   Slot2 = {Name = Shield, Price = 200}
 }
 
 -- Handle the remote event and make the server do something based on what container button ID was sent.
