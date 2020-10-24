@@ -5,7 +5,7 @@ ________________________________________________________________________________
 ## SlimContainer Constructor
 
 
-[SlimContainer] SlimContainer.new(**GuiObject** frame, [OPTIONAL] **ImageButton** buttonTemplate, [OPTIONAL] **int** buttonAmount)
+[SlimContainer] SlimContainer.new(**GuiObject** frame, [OPTIONAL] **ImageButton** buttonTemplate, [OPTIONAL] **INT** buttonAmount)
 
 Creates a new SlimContainer using your own GUI and optional button templates
 ______________________________________________________________________________________________________________________
@@ -21,22 +21,25 @@ ________________________________________________________________________________
 ## SlimContainer Events
 
 
-[RBXScriptSignal] SlimContainer.MouseButton1Down(**int** buttonId, **ImageButton** button)
+[RBXScriptSignal] SlimContainer.MouseButton1Down(**INT** buttonId, **ImageButton** button)
 
 Fires when a button is pressed within the SlimContainer, it will return the button pressed and its ID.
 
 -
 
-RBXScriptSignal] SlimContainer.MouseButton1Up(**int** buttonId, **ImageButton** button)
+RBXScriptSignal] SlimContainer.MouseButton1Up(**INT** buttonId, **ImageButton** button)
 
-Fires when a button is pressed within the SlimContainer, it will return the button hovered and its ID up release.
+Fires when a button is pressed within the SlimContainer, it will return the button hovered and its ID upon release.
+______________________________________________________________________________________________________________________
+-
+-
+-
 ______________________________________________________________________________________________________________________
 
+# Shop Example
+__________________
 
-#Shop Example
-___________________
-
-##Local Script
+## Local Script
 
 ```lua
 local slimContainerModule = require(script.Parent:WaitForChild("SlimContainer")
