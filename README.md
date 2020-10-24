@@ -3,38 +3,48 @@ A luau module used to handle GUI Container input for inventories, shops and any 
 ______________________________________________________________________________________________________________________
 
 ## SlimContainer Constructor
-____________________________
 
-### [SlimContainer] SlimContainer.new(**GuiObject** frame, [OPTIONAL] **ImageButton** buttonTemplate, [OPTIONAL] **int** buttonAmount)
+
+[SlimContainer] SlimContainer.new(**GuiObject** frame, [OPTIONAL] **ImageButton** buttonTemplate, [OPTIONAL] **int** buttonAmount)
 
 Creates a new SlimContainer using your own GUI and optional button templates
 ______________________________________________________________________________________________________________________
 
 ## SlimContainer Functions
-____________________________
 
-### [Table] SlimContainer:GetButtons()
+
+[Table] SlimContainer:GetButtons()
 
 returns all the buttons within the GUI, but does not include the list/grid layout instance.
 ______________________________________________________________________________________________________________________
 
 ## SlimContainer Events
-____________________________
 
-### [RBXScriptSignal] SlimContainer.MouseButton1Down(**int** buttonId, **ImageButton** button)
+
+[RBXScriptSignal] SlimContainer.MouseButton1Down(**int** buttonId, **ImageButton** button)
 
 Fires when a button is pressed within the SlimContainer, it will return the button pressed and its ID.
-______________________________________________________________________________________________________________________
-### [RBXScriptSignal] SlimContainer.MouseButton1Up(**int** buttonId, **ImageButton** button)
+
+----
+
+RBXScriptSignal] SlimContainer.MouseButton1Up(**int** buttonId, **ImageButton** button)
 
 Fires when a button is pressed within the SlimContainer, it will return the button hovered and its ID up release.
 ______________________________________________________________________________________________________________________
 
+-
+-
+-
+-
+-
+-
+-
+-
 
-
+______________________________________________________________________________________________________________________
 
 #Shop Example
-___________
+
 
 ##Local Script
 
@@ -56,7 +66,7 @@ container.MouseButton1Down:Connect(function(id, button)
     remoteEvent:FireServer(id)
 end)
 ```
-_____________________________________________________________________________________________________________________-
+_____________________________________________________________________________________________________________________
 
 ## Server script
 
