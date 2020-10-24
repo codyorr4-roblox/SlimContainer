@@ -56,6 +56,11 @@ local remoteEvent = game.ReplicatedStorage:WaitForChild("RemoteEvent")
 local player = game.Players.LocalPlayer
 local gui = player:WaitForChild("PlayerGui"):WaitForChild("ShopGui"):WaitForChild("ShopFrame")
 
+-- All container must utilize a ListLayout or GridLayout instance.
+local gridLayout = gui:WaitForChild("GridLayout")
+gridLayout.CellPadding = UDim2.new(0,1,0,1)
+gridLayout.CellSize = UDim2.new(0.245, 0,0.163, 0)
+
 -- Button templates and amount are optional.
 local buttonTemplate = Instance.new("ImageButton")
 buttonTemplate.BackgroundTransparency = 1
@@ -64,7 +69,7 @@ buttonTemplate.Image = ""
 --Create the container, if your gui frame already has buttons then dont worry about the last two args.
 local container = slimContainerModule.new(gui, buttonTemplate, 24)
 
---handle container buttons input
+-- Handle container buttons input
 container.MouseButton1Down:Connect(function(id, button)
     print("Slot #"..id.." was pressed")
     remoteEvent:FireServer(id)
