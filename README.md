@@ -58,7 +58,7 @@ local remoteEvent = game.ReplicatedStorage:WaitForChild("RemoteEvent")
 local player = game.Players.LocalPlayer
 local gui = player:WaitForChild("PlayerGui"):WaitForChild("ShopGui"):WaitForChild("ShopFrame")
 
--- All container must utilize a ListLayout or GridLayout instance.
+-- All containers must utilize a ListLayout or GridLayout instance.
 local gridLayout = gui:WaitForChild("GridLayout")
 gridLayout.CellPadding = UDim2.new(0,1,0,1)
 gridLayout.CellSize = UDim2.new(0.245, 0,0.163, 0)
