@@ -1,2 +1,10 @@
 # SlimContainer
-A luau module used to handle GUI Containers for inventory, shop and and any other list/grid based interfaces.
+A luau module used to handle GUI Container input for inventories, shops and any other list/grid based interfaces.
+
+
+
+**EXAMPLE
+
+[code]
+sfd
+[/code]
