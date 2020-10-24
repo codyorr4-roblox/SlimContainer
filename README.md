@@ -66,7 +66,7 @@ local buyButton = player.PlayerGui.ShopGui:WaitForChild("BuyButton")
 -- Store the selected button ID (first button starting at 1, so 0 means nothing is selected)
 local selectedButtonID = 0
 
--- All containers must utilize a ListLayout or GridLayout instance.
+-- All containers must utilize a ListLayout or GridLayout instance. (YOU CAN USE THE PROPERTIES MENU TO FINE TUNE THIS EASIER)
 local gridLayout = gui:WaitForChild("GridLayout")
 gridLayout.CellPadding = UDim2.new(0,1,0,1)
 gridLayout.CellSize = UDim2.new(0.245, 0,0.163, 0)
