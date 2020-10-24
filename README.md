@@ -5,6 +5,7 @@ ________________________________________________________________________________
 ## SlimContainer Constructor
 
 [**SlimContainer**] 
+
 SlimContainer.new(**GuiObject** frame, [OPTIONAL] **ImageButton** buttonTemplate, [OPTIONAL] **INT** buttonAmount)
 
 Creates a new SlimContainer using your own GUI and optional button templates
