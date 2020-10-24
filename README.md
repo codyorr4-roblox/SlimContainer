@@ -53,10 +53,18 @@ ________________________________________________________________________________
 -- Require the module
 local slimContainerModule = require(script.Parent:WaitForChild("SlimContainer")
 
+
+
 -- Get a remote event and the players Gui
 local remoteEvent = game.ReplicatedStorage:WaitForChild("RemoteEvent")
 local player = game.Players.LocalPlayer
 local gui = player:WaitForChild("PlayerGui"):WaitForChild("ShopGui"):WaitForChild("ShopFrame")
+
+-- Get a 'buy' button
+local buyButton = player.PlayerGui.ShopGui:WaitForChild("BuyButton")
+
+-- Store the selected button ID (first button starting at 1, so 0 means nothing is selected)
+local selectedButtonID = 0
 
 -- All containers must utilize a ListLayout or GridLayout instance.
 local gridLayout = gui:WaitForChild("GridLayout")
@@ -71,10 +79,15 @@ buttonTemplate.Image = ""
 --Create the container, if your gui frame already has buttons then dont worry about the last two args.
 local container = slimContainerModule.new(gui, buttonTemplate, 24)
 
--- Handle container buttons input
+-- Handle container input
 container.MouseButton1Down:Connect(function(id, button)
     print("Slot #"..id.." was pressed")
-    remoteEvent:FireServer(id)
+    selectedButtonId = id
+end)
+
+buyButton.MouseButton1Click:Connect(function()
+    print("Attempting to buy an item")
+    remoteEvent:FireServer(selectedButtonId)
 end)
 ```
 _____________________________________________________________________________________________________________________
@@ -85,6 +98,9 @@ ________________________________________________________________________________
 -- Get the remote event
 local remoteEvent = game.ReplicatedStorage.RemoteEvent
 
+-- if your shop requires actual tools/accessories etc, then reference a folder holding them.
+local itemsFolder = game.ServerStorage.Items
+
 -- Setup some sort of data for your shop.
 local shopItems = {
    Slot1 = {Name = Sword, Price = 100},
@@ -93,13 +109,29 @@ local shopItems = {
 
 -- Handle the remote event and make the server do something based on what button ID was sent.
 remoteEvent.OnServerEvent:Connect(function(player,id)
-    -- try to prevent players from sending other data types. (basic example)
+    -- Try to prevent players from sending other data types. (basic example)
     if(not id or type(id) ~= "number") then return end
     
-    -- select an item based on received ID
+    
+    
+    --[[ Check and Handle players money value here]]
+    
+    
+    
+    -- Select an item based on received ID
     local selectedItem = shopItems["Slot"..id]
+    
+    -- If Selected item exists then do something with it
     if(selectedItem)then
-        print("Player selected the " .. selectedItem.Name .. " for "..selectedItem.Price .." Coins"
+        print("Player bought the " .. selectedItem.Name .. " for "..selectedItem.Price .." Coins")
+        
+        -- Grab some instance if needed
+        local tool = items:FindFirstChild(selectedItem.Name)
+        
+        -- if it also exists then give it to the player
+        if(tool)then
+            tool.Parent = player.Backpack
+        end
     end
 end)
 
