@@ -14,18 +14,6 @@ ________________________________________________________________________________
 [**GuiObject**] SlimContainer.GuiObject
 
 the Gui object of this container
-
--
-
-[**Float**] SlimContainer.Cooldown
-
-the current cooldown in seconds+millseconds
-
--
-
-[**Float**] SlimContainer.CooldownInterval
-
-this determines how long the player must wait before clicking another button.
 ______________________________________________________________________________________________________________________
 
 ## SlimContainer Functions
