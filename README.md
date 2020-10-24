@@ -91,7 +91,7 @@ local shopItems = {
    Slot2 = {Name = Shield, Price = 200}
 }
 
--- Handle the remote event and make the server do something based on what container button ID was sent.
+-- Handle the remote event and make the server do something based on what button ID was sent.
 remoteEvent.OnServerEvent:Connect(function(player,id)
     -- try to prevent players from sending other data types. (basic example)
     if(not id or type(id) ~= "number") then return end
