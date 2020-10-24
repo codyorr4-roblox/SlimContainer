@@ -41,18 +41,23 @@ __________________
 ## Local Script
 
 ```lua
+-- Require the module
 local slimContainerModule = require(script.Parent:WaitForChild("SlimContainer")
 
+-- Get a remote event and the players Gui
 local remoteEvent = game.ReplicatedStorage:WaitForChild("RemoteEvent")
 local player = game.Players.LocalPlayer
 local gui = player:WaitForChild("PlayerGui"):WaitForChild("ShopGui"):WaitForChild("ShopFrame")
 
+-- Button templates and amount are optional.
 local buttonTemplate = Instance.new("ImageButton")
 buttonTemplate.BackgroundTransparency = 1
 buttonTemplate.Image = ""
 
+--Create the container, if your gui frame already has buttons then dont worry about the last two args.
 local container = slimContainerModule.new(gui, buttonTemplate, 24)
 
+--handle container buttons input
 container.MouseButton1Down:Connect(function(id, button)
     print("Slot #"..id.." was pressed")
     remoteEvent:FireServer(id)
@@ -63,17 +68,21 @@ ________________________________________________________________________________
 ## Server script
 
 ```lua
+-- Get the remote event
 local remoteEvent = game.ReplicatedStorage.RemoteEvent
 
+-- Setup some sort of data for your shop.
 local shopItems = {
    Slot1 = {Name = Sword, Price = 100},
    Slot2 = {Name = Shield, Price = 200},
 }
 
+-- Handle the remote event and make the server do something based on what container button ID was sent.
 remoteEvent.OnServerEvent:Connect(function(player,id)
-    --try to prevent players from sending other data types.
+    -- try to prevent players from sending other data types. (basic example)
     if(not id or type(id) ~= "number") then return end
     
+    -- select an item based on received ID
     local selectedItem = shopItems["Slot"..id]
     if(selectedItem)then
         print("Player selected the " .. selectedItem.Name .. " for "..selectedItem.Price .." Coins"
