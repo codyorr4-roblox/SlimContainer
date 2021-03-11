@@ -37,21 +37,14 @@ function SlimContainer.new(guiObject)
 	-- PRESSING
 	function containerObject.MouseButton1Down:Connect(f)
 		local con = uis.InputBegan:Connect(function(input, g)
-			
 			if(g and guiObject and guiObject.Visible)then
 				if(input.UserInputType == Enum.UserInputType.MouseButton1 and os.clock() >= containerObject.Cooldown)then
 					local s = playerGui:GetGuiObjectsAtPosition(mouse.X, mouse.Y)[1]
-					
 					if(s and s:IsA("ImageButton") and s:IsDescendantOf(guiObject))then
 						containerObject.Cooldown = os.clock() + containerObject.CooldownInterval
-
-						local holding = true
+						containerObject.Dragging=true
 						wait(0.2)
-						if(holding)then
-							containerObject.Dragging=true
-						else
-							f(s.LayoutOrder, s)
-						end
+						f(s.LayoutOrder, s, containerObject.Dragging)
 					end
 				end
 			end
@@ -67,12 +60,11 @@ function SlimContainer.new(guiObject)
 		local con = uis.InputEnded:Connect(function(input, g)
 			if((g or containerObject.Dragging) and guiObject.Visible)then
 				if(input.UserInputType == Enum.UserInputType.MouseButton1)then
-					containerObject.Dragging=false
 					local s = playerGui:GetGuiObjectsAtPosition(mouse.X, mouse.Y)[containerObject.Dragging==false and 1 or 2]
-					
 					if(s and s:IsA("ImageButton") and s:IsDescendantOf(guiObject))then
-						f(s.LayoutOrder, s)
+						f(s.LayoutOrder, s, containerObject.Dragging)
 					end
+					containerObject.Dragging=false
 				end
 			end
 		end)
